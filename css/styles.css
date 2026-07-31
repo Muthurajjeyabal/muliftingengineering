@@ -297,3 +297,58 @@ button,input,select,textarea{font:inherit}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== Crane Hero Animation ===== */
+.crane-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+.crane-svg {
+  width: min(420px, 70vw);
+  height: auto;
+  max-height: 85vh;
+  margin-top: 0;
+  filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+}
+.rope-line {
+  transition: none;
+}
+.hero {
+  position: relative;
+  min-height: 120vh; /* extra height for scroll-driven lift */
+}
+.hero__content {
+  position: relative;
+  z-index: 2;
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  padding-top: 8vh;
+}
+.hero__content.hero-visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.hero__scroll small {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+@media (max-width: 600px) {
+  .crane-svg {
+    width: min(280px, 85vw);
+  }
+  .hero {
+    min-height: 130vh;
+  }
+  .hero__content {
+    padding-top: 4vh;
+  }
+}
